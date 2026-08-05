@@ -1,3 +1,5 @@
+from flask import Flask
+import threading
 import telebot
 import yt_dlp
 import os
@@ -38,6 +40,17 @@ def download_video(message):
 
     except Exception as e:
         bot.send_message(message.chat.id, f"Хато: {e}")
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Bot is running"
+
+def run_server():
+    app.run(host="0.0.0.0", port=10000)
+
+threading.Thread(target=run_server).start()
 
 print("Bot ишлаяпти...")
 bot.infinity_polling()

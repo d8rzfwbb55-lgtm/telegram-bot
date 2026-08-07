@@ -1,5 +1,5 @@
 PyTelegramBotAPI
-yt-dlp==2026.8.1
+yt-dlp==2026.8.4
 requests
 ffmpeg-python
 Flask
